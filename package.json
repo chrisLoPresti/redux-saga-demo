@@ -1,0 +1,36 @@
+{
+  "name": "redux-saga-sample",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/chrisLoPresti/redux-saga-demo.git",
+  "author": "Chris LoPresti <lopresti.chris@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/react-redux": "^7.0.3",
+    "bcryptjs": "2.4.3",
+    "body-parser": "1.18.3",
+    "concurrently": "^4.1.0",
+    "express": "4.16.4",
+    "jsonwebtoken": "8.5.0",
+    "mongoose": "5.4.18",
+    "passport": "0.4.0",
+    "passport-jwt": "4.0.0",
+    "uuid": "3.3.2",
+    "validator": "10.11.0"
+  },
+  "devDependencies": {
+    "json-server": "^0.14.2",
+    "nodemon": "1.18.10"
+  },
+  "scripts": {
+    "client-install": "yarn --cwd frontend",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "yarn --cwd frontend start",
+    "dev": "concurrently \"yarn server\" \"yarn client\"",
+    "mock": "concurrently \"json-server --watch db.json --port 3004\" \"yarn client\"",
+    "//": "allows us to run our dev dependancies < below command > and install our node modules on the server",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn --cwd frontend && yarn --cwd frontend build"
+  }
+}
